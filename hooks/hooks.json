@@ -2,8 +2,12 @@
   "hooks": {
     "Stop": [
       {
-        "type": "command",
-        "command": "bash -c 'BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null); if [ \"$BRANCH\" != \"main\" ] && [ \"$BRANCH\" != \"develop\" ] && [ \"$BRANCH\" != \"HEAD\" ]; then mkdir -p .sessions && echo \"---\nsession_end: $(date -u +%Y-%m-%dT%H:%M:%SZ)\nbranch: $BRANCH\nauthor: $(git config user.name)\ncommits_since_base: $(git log --oneline develop..$BRANCH 2>/dev/null | wc -l | tr -d \" \")\nfiles_changed: $(git diff develop..$BRANCH --name-only 2>/dev/null | wc -l | tr -d \" \")\n---\" > \".sessions/$(git config user.name | tr \" \" \"-\" | tr \"[:upper:]\" \"[:lower:]\")-$(date +%Y%m%d)-$BRANCH.meta\"; fi'",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null); if [ \"$BRANCH\" != \"main\" ] && [ \"$BRANCH\" != \"develop\" ] && [ \"$BRANCH\" != \"HEAD\" ]; then mkdir -p .sessions && echo \"---\nsession_end: $(date -u +%Y-%m-%dT%H:%M:%SZ)\nbranch: $BRANCH\nauthor: $(git config user.name)\ncommits_since_base: $(git log --oneline develop..$BRANCH 2>/dev/null | wc -l | tr -d \" \")\nfiles_changed: $(git diff develop..$BRANCH --name-only 2>/dev/null | wc -l | tr -d \" \")\n---\" > \".sessions/$(git config user.name | tr \" \" \"-\" | tr \"[:upper:]\" \"[:lower:]\")-$(date +%Y%m%d)-$BRANCH.meta\"; fi'"
+          }
+        ],
         "description": "Auto-track session metadata when Claude Code session ends on a feature branch"
       }
     ]

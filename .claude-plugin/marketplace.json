@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "supermerges-local",
+  "description": "Local marketplace for SuperMerges plugin",
+  "owner": {
+    "name": "norwayiscoming"
+  },
+  "plugins": [
+    {
+      "name": "supermerges",
+      "description": "AI-powered intent-aware merge tool for vibecoding teams",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/norwayiscoming/supermerges.git",
+        "sha": "0632018a7f6b736a2fe8f3088b718810c5357ce1"
+      },
+      "category": "development"
+    }
+  ]
+}
