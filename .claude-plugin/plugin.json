@@ -1,0 +1,10 @@
+{
+  "name": "supermerges",
+  "description": "AI-powered intent-aware merge tool for vibecoding teams. Leverages git worktree for parallel branch analysis and smart conflict resolution at the intent level, not just text diff.",
+  "version": "0.1.0",
+  "author": {
+    "name": "norwayiscoming"
+  },
+  "keywords": ["merge", "git", "worktree", "vibecoding", "team", "collaboration"],
+  "repository": "https://github.com/norwayiscoming/supermerges"
+}
